@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\TechnoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Web Routes 
+Route::get('/', [TechnoController::class, 'index'])->name('technos.index');
+Route::post('/technos', [TechnoController::class, 'store'])->name('technos.store');
