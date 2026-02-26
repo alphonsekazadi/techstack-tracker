@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStack Tracker</title>
+    <title>@yield('title', 'TechStack Tracker')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 p-10">
-    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">
-        @yield('content') </div>
+<body class="bg-gray-50">
+    @include('layouts.header')
+
+    <main class="container mx-auto px-6 py-8">
+        @yield('content')
+    </main>
 </body>
 </html>
