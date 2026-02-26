@@ -1,4 +1,4 @@
-<header class="bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg">
+<header class="bg-blue-400 shadow-lg">
     <nav class="container mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
             <div class="flex items-center space-x-2">
