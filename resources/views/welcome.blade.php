@@ -9,7 +9,7 @@
         <button type="submit" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Ajouter</button>
     </form>
 
-    <div class="space-y-3">
+    <div class="space-y-3 px-40">
         @foreach($technos as $techno)
             <div class="flex items-center justify-between p-3 bg-gray-50 rounded border">
                 <span class="{{ $techno->maitrise ? 'line-through text-gray-400' : 'text-gray-800' }}">
