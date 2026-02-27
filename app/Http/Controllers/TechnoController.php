@@ -28,4 +28,10 @@ class TechnoController extends Controller
 
         return redirect()->back();
     }
+    // 3. Delete a techno
+    public function destroy(Techno $techno)
+    {
+        $techno->delete();
+        return redirect()->back();
+    }
 }
