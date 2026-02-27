@@ -28,7 +28,23 @@ class TechnoController extends Controller
 
         return redirect()->back();
     }
-    // 3. Delete a techno
+
+    //3. Update techno name
+    public function update(Request $request, Techno $techno)
+    {
+        $request->validate(['nom' => 'required|max:255']);
+        $techno->update(['nom' => $request->nom]);
+        return redirect()->back();
+    }
+
+    //4. Toggle maitrise status
+    public function toggleMaitrise(Techno $techno)
+    {
+        $techno->update(['maitrise' => !$techno->maitrise]);
+        return redirect()->back();
+    }
+
+    //5. Delete a techno
     public function destroy(Techno $techno)
     {
         $techno->delete();
