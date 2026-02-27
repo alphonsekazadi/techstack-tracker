@@ -11,7 +11,7 @@ class TechnoController extends Controller
     public function index()
     {
         $technos = Techno::all();
-        return view('welcome', compact('technos'));
+        return view('home', compact('technos'));
     }
 
     //2. Add a new techno
@@ -49,5 +49,24 @@ class TechnoController extends Controller
     {
         $techno->delete();
         return redirect()->back();
+    }
+
+    //6. Technologies page
+    public function technologies()
+    {
+        $technos = Techno::all();
+        return view('technologies', compact('technos'));
+    }
+
+    //7. Progress page
+    public function progress()
+    {
+        $total = Techno::count();
+        $mastered = Techno::where('maitrise', true)->count();
+        $inProgress = Techno::where('maitrise', false)->count();
+        $masteredTechnos = Techno::where('maitrise', true)->get();
+        $learningTechnos = Techno::where('maitrise', false)->get();
+
+        return view('progress', compact('total', 'mastered', 'inProgress', 'masteredTechnos', 'learningTechnos'));
     }
 }
