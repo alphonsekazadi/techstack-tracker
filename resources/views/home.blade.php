@@ -9,7 +9,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">Total Technologies</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1">12</h3>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $total }}</h3>
                 </div>
                 <div class="bg-blue-400/10 p-3 rounded-lg">
                     <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">In Progress</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1">5</h3>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $inProgress }}</h3>
                 </div>
                 <div class="bg-yellow-100 p-3 rounded-lg">
                     <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-500 text-sm">Mastered</p>
-                    <h3 class="text-3xl font-bold text-gray-800 mt-1">7</h3>
+                    <h3 class="text-3xl font-bold text-gray-800 mt-1">{{ $mastered }}</h3>
                 </div>
                 <div class="bg-green-100 p-3 rounded-lg">
                     <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,18 @@
             <h2 class="text-lg font-semibold text-gray-800">Recent Technologies</h2>
         </div>
         <div class="p-6">
-            <p class="text-gray-500">No technologies added yet.</p>
+            @forelse($recentTechnos as $techno)
+                <div class="flex items-center justify-between py-2 border-b last:border-0">
+                    <span class="{{ $techno->maitrise ? 'line-through text-gray-400' : 'text-gray-800' }}">
+                        {{ $techno->nom }}
+                    </span>
+                    <span class="text-xs px-2 py-1 rounded {{ $techno->maitrise ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-600' }}">
+                        {{ $techno->maitrise ? 'Mastered' : 'Learning' }}
+                    </span>
+                </div>
+            @empty
+                <p class="text-gray-500">No technologies added yet.</p>
+            @endforelse
         </div>
     </div>
 @endsection
