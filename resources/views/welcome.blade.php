@@ -16,7 +16,11 @@
                     {{ $techno->nom }}
                 </span>
                 
-                <button class="text-red-500 hover:text-red-700">Supprimer</button>
+                <form action="{{ route('techno.destroy', $techno->id) }}" method="POST" class="inline">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="text-red-500 hover:text-red-700">Supprimer</button>
+                </form>
             </div>
         @endforeach
     </div>
