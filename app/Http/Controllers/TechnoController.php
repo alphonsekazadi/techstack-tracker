@@ -10,8 +10,12 @@ class TechnoController extends Controller
     //1. Show all technos
     public function index()
     {
-        $technos = Techno::all();
-        return view('home', compact('technos'));
+        $total = Techno::count();
+        $mastered = Techno::where('maitrise', true)->count();
+        $inProgress = Techno::where('maitrise', false)->count();
+        $recentTechnos = Techno::latest()->take(5)->get();
+
+        return view('home', compact('total', 'mastered', 'inProgress', 'recentTechnos'));
     }
 
     //2. Add a new techno
