@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="text-2xl font-bold mb-6 text-blue-400">Ma Veille Techno</h1>
 
-    <form action="{{ route('techno.store') }}" method="POST" class="flex gap-2 mb-8">
+    <form action="{{ route('technos.store') }}" method="POST" class="flex gap-2 mb-8">
         @csrf
         <input type="text" name="nom" class="flex-1 border rounded p-2 outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Ex: React JS">
         <button type="submit" class="bg-blue-400 text-white px-4 py-2 rounded hover:bg-indigo-700 transition">Ajouter</button>
@@ -16,7 +16,7 @@
                     {{ $techno->nom }}
                 </span>
                 
-                <form action="{{ route('techno.destroy', $techno->id) }}" method="POST" class="inline">
+                <form action="{{ route('technos.destroy', $techno->id) }}" method="POST" class="inline">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="text-red-500 hover:text-red-700">Supprimer</button>
