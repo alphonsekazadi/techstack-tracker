@@ -11,16 +11,28 @@
 
     <div class="space-y-3 px-40">
         @foreach($technos as $techno)
-            <div class="flex items-center justify-between p-3 bg-gray-50 rounded border">
-                <span class="{{ $techno->maitrise ? 'line-through text-gray-400' : 'text-gray-800' }}">
-                    {{ $techno->nom }}
-                </span>
-                
-                <form action="{{ route('technos.destroy', $techno->id) }}" method="POST" class="inline">
+            <div class="flex items-center justify-between p-3 bg-gray-50 rounded border gap-3">
+                <form action="{{ route('technos.update', $techno->id) }}" method="POST" class="flex-1">
                     @csrf
-                    @method('DELETE')
-                    <button type="submit" class="text-red-500 hover:text-red-700">Supprimer</button>
+                    @method('PUT')
+                    <input type="text" name="nom" value="{{ $techno->nom }}" class="w-full border-0 bg-transparent outline-none focus:ring-2 focus:ring-blue-400 rounded px-2 {{ $techno->maitrise ? 'line-through text-gray-400' : 'text-gray-800' }}">
                 </form>
+                
+                <div class="flex gap-2">
+                    <form action="{{ route('technos.toggle', $techno->id) }}" method="POST" class="inline">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="{{ $techno->maitrise ? 'text-green-500 hover:text-green-700' : 'text-gray-400 hover:text-gray-600' }}">
+                            {{ $techno->maitrise ? '✓' : '○' }}
+                        </button>
+                    </form>
+                    
+                    <form action="{{ route('technos.destroy', $techno->id) }}" method="POST" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:text-red-700">×</button>
+                    </form>
+                </div>
             </div>
         @endforeach
     </div>
