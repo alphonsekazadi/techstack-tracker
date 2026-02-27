@@ -7,6 +7,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [TechnoController::class, 'index'])->name('techno.index');
 Route::post('/technos', [TechnoController::class, 'store'])->name('techno.store');
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::delete('/technos/{id}', [TechnoController::class, 'destroy'])->name('techno.destroy');
