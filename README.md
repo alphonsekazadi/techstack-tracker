@@ -1,5 +1,5 @@
 ## techstack-tracker
-
+![techstack tracker](image.png)
 Web application to documente techs I've to learn or master
 
 ### Tech Stack
