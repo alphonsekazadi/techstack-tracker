@@ -1,7 +1,7 @@
 # TechStack Tracker
 ![techstack tracker](image.png)
 
-A web application to track and manage technologies you want to learn or master. I built it for me, but I think it can help you too.
+A web application to track and manage technologies you want to learn or master. I built it for me, but I think it'll be helpful for you too.
 
 ## Features
 
