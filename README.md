@@ -51,3 +51,7 @@ Access the application at http://localhost:8000
 - Dashboard: Overview with stats and recent technologies
 - Technologies: Full CRUD management of your tech stack
 - Progress: Detailed progress tracking and completion rates
+
+## License
+
+[MIT](LICENSE)
